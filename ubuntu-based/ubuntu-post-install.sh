@@ -9,6 +9,9 @@ NC='\033[0m'
 echob() { echo -e "${BLUE}$1${NC}"; }
 echog() { echo -e "${GREEN}$1${NC}"; }
 
+GIT_USER_NAME='Adriano'
+GIT_USER_EMAIL='change@me.com'
+
 # action!
 gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
 echog "first and most important... a dark theme"
@@ -54,7 +57,8 @@ sudo apt upgrade -y
 
 echog "installing git"
 sudo apt install git -y
-git config --global user.name "Adriano"
+git config --global user.name $GIT_USER_NAME
+git config --global user.email $GIT_USER_EMAIL
 
 echog "installing spotify"
 sudo snap install spotify
