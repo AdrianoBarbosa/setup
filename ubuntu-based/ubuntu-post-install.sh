@@ -130,6 +130,10 @@ echob "# Docker"
 echob "#"
 echog "installing docker"
 sudo apt install docker-ce docker-ce-cli containerd.io -y
+# https://docs.docker.com/engine/install/linux-postinstall/
+echog "docker without sudo"
+sudo groupadd docker
+sudo usermod -aG docker $USER
 
 echob "################################################################################"
 echob "#"
