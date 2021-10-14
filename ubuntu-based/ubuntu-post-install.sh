@@ -29,6 +29,14 @@ echob "#########################################################################
 echob "#"
 echob "# Repositories"
 echob "#"
+sudo apt update
+echog "curl"
+sudo apt install curl -y
+
+echog "vscode"
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/microsoft.gpg
+
 echog "dotnet"
 wget https://packages.microsoft.com/config/ubuntu/$UBUNTU_VERSION/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
@@ -104,7 +112,7 @@ echob "#"
 echob "# Visual Studio Code"
 echob "#"
 echog "installing vscode"
-sudo snap install code --classic
+sudo apt install code
 
 echog "some vscode extensions"
 code --install-extension ms-dotnettools.csharp
