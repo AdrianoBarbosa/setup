@@ -60,6 +60,10 @@ echo \
   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
+echg "spotify"
+curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+
 echog "updating packages"
 sudo apt update
 sudo apt upgrade -y
@@ -70,7 +74,7 @@ git config --global user.name $GIT_USER_NAME
 git config --global user.email $GIT_USER_EMAIL
 
 echog "installing spotify"
-sudo snap install spotify
+sudo apt install spotify-client
 
 echog "installing steam"
 sudo apt install steam-installer -y
